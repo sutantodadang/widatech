@@ -1,0 +1,16 @@
+version: "3.9"
+services:
+  db:
+    image: postgres:alpine
+    container_name: pg_db
+    environment:
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=widatech
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+    
+volumes:
+  pg_data:
