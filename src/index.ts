@@ -16,6 +16,9 @@ AppDataSource.initialize()
         app.use(express.json());
         app.use(morgan("dev"))
 
+        app.use('*', (req, res, next) => {
+            res.send("welcome to widatech api")
+        });
         app.use('/api', invoiceRoutes);
         app.use('*', (req, res, next) => {
             next(ApiError.notFound('Endpoint not found'));
